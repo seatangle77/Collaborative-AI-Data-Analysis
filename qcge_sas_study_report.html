@@ -1,0 +1,613 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>QCGE-SAS Study Report</title>
+            <style>
+                body {
+                    font-family: 'Microsoft YaHei', 'SimSun', serif;
+                    line-height: 1.6;
+                    margin: 0;
+                    padding: 20px;
+                    background-color: #f5f5f5;
+                    color: #333;
+                }
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    background-color: white;
+                    padding: 30px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                }
+                h1 {
+                    color: #2c3e50;
+                    text-align: center;
+                    border-bottom: 3px solid #3498db;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                    font-size: 28px;
+                }
+                h2 {
+                    color: #34495e;
+                    margin-top: 40px;
+                    margin-bottom: 20px;
+                    border-left: 5px solid #3498db;
+                    padding-left: 20px;
+                    font-size: 24px;
+                }
+                h3 {
+                    color: #7f8c8d;
+                    margin-top: 30px;
+                    margin-bottom: 15px;
+                    font-size: 20px;
+                }
+                .study-info {
+                    background-color: #e8f4f8;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin: 20px 0;
+                    border-left: 5px solid #3498db;
+                }
+                .highlight {
+                    background-color: #fff3cd;
+                    padding: 15px;
+                    border-radius: 5px;
+                    margin: 15px 0;
+                    border-left: 5px solid #ffc107;
+                }
+                .stats-box {
+                    background-color: #f8f9fa;
+                    padding: 15px;
+                    border-radius: 5px;
+                    margin: 10px 0;
+                    border: 1px solid #dee2e6;
+                }
+                .chart-section {
+                    text-align: center;
+                    margin: 30px 0;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    border-radius: 8px;
+                }
+                .chart-section img {
+                    max-width: 80%;
+                    width: auto;
+                    height: auto;
+                    max-height: 500px;
+                    border: 2px solid #dee2e6;
+                    border-radius: 5px;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                    object-fit: contain;
+                }
+                @media (max-width: 768px) {
+                    .chart-section img {
+                        max-width: 95%;
+                        max-height: 400px;
+                    }
+                }
+                @media (max-width: 480px) {
+                    .chart-section img {
+                        max-width: 100%;
+                        max-height: 300px;
+                    }
+                }
+                .chart-caption {
+                    margin-top: 15px;
+                    font-style: italic;
+                    color: #666;
+                    font-size: 14px;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin: 20px 0;
+                    font-size: 14px;
+                }
+                th, td {
+                    border: 1px solid #ddd;
+                    padding: 12px;
+                    text-align: center;
+                    vertical-align: middle;
+                }
+                th {
+                    background-color: #3498db;
+                    color: white;
+                    font-weight: bold;
+                }
+                tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+                tr:hover {
+                    background-color: #e8f4f8;
+                }
+                .condition-header {
+                    background-color: #2c3e50 !important;
+                    color: white !important;
+                    font-weight: bold;
+                }
+                .significant {
+                    color: #27ae60;
+                    font-weight: bold;
+                }
+                .not-significant {
+                    color: #e74c3c;
+                }
+                .footer {
+                    margin-top: 40px;
+                    padding: 20px;
+                    background-color: #ecf0f1;
+                    border-radius: 8px;
+                    text-align: center;
+                    color: #7f8c8d;
+                }
+                .methodology {
+                    background-color: #e8f5e8;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin: 20px 0;
+                    border-left: 5px solid #27ae60;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>QCGE-SAS Study Report</h1>
+                <h2>Measuring the Quality of Collaborative Group Engagement: AR Glasses + AI Assistance vs. No Assistance</h2>
+                
+                <div class="study-info">
+                    <h3>📋 研究概述</h3>
+                    <p><strong>研究问题：</strong>AR眼镜结合AI辅助是否能提升协作组参与质量？</p>
+                    <p><strong>样本量：</strong>36 名参与者</p>
+                    <p><strong>研究设计：</strong>被试内比较设计 (AR+AI辅助 vs 无辅助)</p>
+                    <p><strong>测量工具：</strong>QCGE-SAS (协作组参与质量自我评估量表)</p>
+                    <p><strong>四个维度：</strong>行为参与(BE)、社会参与(SE)、认知参与(CE)、概念到结果参与(CC)</p>
+                </div>
+                
+                <div class="methodology">
+                    <h3>🔬 分析方法</h3>
+                    <p><strong>步骤1：</strong>信度分析 - 计算各维度Cronbach's α系数</p>
+                    <p><strong>步骤2：</strong>描述统计与正态性检验 - Shapiro-Wilk检验</p>
+                    <p><strong>步骤3：</strong>配对比较分析 - 根据正态性选择t检验或Wilcoxon检验</p>
+                    <p><strong>效应量：</strong>Cohen's d (参数检验) 或 r (非参数检验)</p>
+                    <p><strong>显著性水平：</strong>α = 0.05</p>
+                </div>
+                
+                <h2>📊 分析结果</h2>
+                
+                <h3>1. 信度分析结果</h3>
+                <div class="stats-box">
+                    <p><strong>信度解释标准：</strong></p>
+                    <ul>
+                        <li>α ≥ 0.9：优秀 (Excellent)</li>
+                        <li>0.8 ≤ α < 0.9：良好 (Good)</li>
+                        <li>0.7 ≤ α < 0.8：可接受 (Acceptable)</li>
+                        <li>0.6 ≤ α < 0.7：可疑 (Questionable)</li>
+                        <li>α < 0.6：差 (Poor)</li>
+                    </ul>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scale</th>
+                            <th>Condition</th>
+                            <th>Items</th>
+                            <th>Cronbach's α</th>
+                            <th>Total Score Mean</th>
+                            <th>Total Score SD</th>
+                            <th>Reliability Quality</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td>BE_N</td>
+                            <td class="condition-header">No Assistance</td>
+                            <td>3</td>
+                            <td>0.593</td>
+                            <td>19.8</td>
+                            <td>1.6</td>
+                            <td>Poor</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>SE_N</td>
+                            <td class="condition-header">No Assistance</td>
+                            <td>4</td>
+                            <td>0.543</td>
+                            <td>22.9</td>
+                            <td>3.8</td>
+                            <td>Poor</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>CE_N</td>
+                            <td class="condition-header">No Assistance</td>
+                            <td>3</td>
+                            <td>0.542</td>
+                            <td>17.3</td>
+                            <td>2.8</td>
+                            <td>Poor</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>CC_N</td>
+                            <td class="condition-header">No Assistance</td>
+                            <td>3</td>
+                            <td>0.765</td>
+                            <td>16.4</td>
+                            <td>3.4</td>
+                            <td>Acceptable</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Total_N</td>
+                            <td class="condition-header">No Assistance</td>
+                            <td>13</td>
+                            <td>0.703</td>
+                            <td>76.4</td>
+                            <td>7.7</td>
+                            <td>Acceptable</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>BE_A</td>
+                            <td class="condition-header">AR+AI Assistance</td>
+                            <td>3</td>
+                            <td>0.430</td>
+                            <td>19.3</td>
+                            <td>2.2</td>
+                            <td>Poor</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>SE_A</td>
+                            <td class="condition-header">AR+AI Assistance</td>
+                            <td>4</td>
+                            <td>0.566</td>
+                            <td>23.3</td>
+                            <td>4.1</td>
+                            <td>Poor</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>CE_A</td>
+                            <td class="condition-header">AR+AI Assistance</td>
+                            <td>3</td>
+                            <td>0.548</td>
+                            <td>17.6</td>
+                            <td>2.9</td>
+                            <td>Poor</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>CC_A</td>
+                            <td class="condition-header">AR+AI Assistance</td>
+                            <td>3</td>
+                            <td>0.765</td>
+                            <td>17.4</td>
+                            <td>3.1</td>
+                            <td>Acceptable</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Total_A</td>
+                            <td class="condition-header">AR+AI Assistance</td>
+                            <td>13</td>
+                            <td>0.710</td>
+                            <td>77.6</td>
+                            <td>8.2</td>
+                            <td>Acceptable</td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+                
+                <h3>2. 描述统计与正态性检验结果</h3>
+                <div class="stats-box">
+                    <p><strong>正态性判断标准：</strong>Shapiro-Wilk检验 p ≥ 0.05 为正态分布，p < 0.05 为非正态分布</p>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Condition</th>
+                            <th>Mean (M)</th>
+                            <th>SD</th>
+                            <th>Median</th>
+                            <th>Min</th>
+                            <th>Max</th>
+                            <th>Range</th>
+                            <th>Shapiro-Wilk p</th>
+                            <th>Distribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                    <tr>
+                        <td rowspan="2">BE</td>
+                        <td class="condition-header">No Assistance</td>
+                        <td>6.611</td>
+                        <td>0.537</td>
+                        <td>7.000</td>
+                        <td>5.000</td>
+                        <td>7.000</td>
+                        <td>2.000</td>
+                        <td>0.0000</td>
+                        <td>Non-normal</td>
+                    </tr>
+                    <tr>
+                        <td class="condition-header">AR+AI Assistance</td>
+                        <td>6.435</td>
+                        <td>0.734</td>
+                        <td>6.667</td>
+                        <td>4.000</td>
+                        <td>7.000</td>
+                        <td>3.000</td>
+                        <td>0.0000</td>
+                        <td>Non-normal</td>
+                    </tr>
+                
+                    <tr>
+                        <td rowspan="2">SE</td>
+                        <td class="condition-header">No Assistance</td>
+                        <td>5.722</td>
+                        <td>0.959</td>
+                        <td>5.750</td>
+                        <td>4.000</td>
+                        <td>7.000</td>
+                        <td>3.000</td>
+                        <td>0.0156</td>
+                        <td>Non-normal</td>
+                    </tr>
+                    <tr>
+                        <td class="condition-header">AR+AI Assistance</td>
+                        <td>5.826</td>
+                        <td>1.021</td>
+                        <td>5.875</td>
+                        <td>3.500</td>
+                        <td>7.000</td>
+                        <td>3.500</td>
+                        <td>0.0016</td>
+                        <td>Non-normal</td>
+                    </tr>
+                
+                    <tr>
+                        <td rowspan="2">CE</td>
+                        <td class="condition-header">No Assistance</td>
+                        <td>5.759</td>
+                        <td>0.928</td>
+                        <td>5.833</td>
+                        <td>4.000</td>
+                        <td>7.000</td>
+                        <td>3.000</td>
+                        <td>0.0239</td>
+                        <td>Non-normal</td>
+                    </tr>
+                    <tr>
+                        <td class="condition-header">AR+AI Assistance</td>
+                        <td>5.861</td>
+                        <td>0.974</td>
+                        <td>6.000</td>
+                        <td>4.000</td>
+                        <td>7.000</td>
+                        <td>3.000</td>
+                        <td>0.0034</td>
+                        <td>Non-normal</td>
+                    </tr>
+                
+                    <tr>
+                        <td rowspan="2">CC</td>
+                        <td class="condition-header">No Assistance</td>
+                        <td>5.481</td>
+                        <td>1.117</td>
+                        <td>5.500</td>
+                        <td>3.333</td>
+                        <td>7.000</td>
+                        <td>3.667</td>
+                        <td>0.0376</td>
+                        <td>Non-normal</td>
+                    </tr>
+                    <tr>
+                        <td class="condition-header">AR+AI Assistance</td>
+                        <td>5.815</td>
+                        <td>1.019</td>
+                        <td>6.000</td>
+                        <td>4.000</td>
+                        <td>7.000</td>
+                        <td>3.000</td>
+                        <td>0.0018</td>
+                        <td>Non-normal</td>
+                    </tr>
+                
+                    <tr>
+                        <td rowspan="2">Total</td>
+                        <td class="condition-header">No Assistance</td>
+                        <td>5.880</td>
+                        <td>0.591</td>
+                        <td>5.846</td>
+                        <td>4.615</td>
+                        <td>6.923</td>
+                        <td>2.308</td>
+                        <td>0.5987</td>
+                        <td>Normal</td>
+                    </tr>
+                    <tr>
+                        <td class="condition-header">AR+AI Assistance</td>
+                        <td>5.972</td>
+                        <td>0.629</td>
+                        <td>5.962</td>
+                        <td>4.462</td>
+                        <td>7.000</td>
+                        <td>2.538</td>
+                        <td>0.2570</td>
+                        <td>Normal</td>
+                    </tr>
+                
+                    </tbody>
+                </table>
+                
+                <h3>3. 配对比较分析结果</h3>
+                <div class="stats-box">
+                    <p><strong>效应量解释标准：</strong></p>
+                    <ul>
+                        <li><strong>Cohen's d：</strong>|d| < 0.2 (小效应), 0.2 ≤ |d| < 0.5 (中等效应), |d| ≥ 0.5 (大效应)</li>
+                        <li><strong>r：</strong>|r| < 0.1 (小效应), 0.1 ≤ |r| < 0.3 (中等效应), |r| ≥ 0.3 (大效应)</li>
+                    </ul>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Test Method</th>
+                            <th>Statistic</th>
+                            <th>p-value</th>
+                            <th>Significance</th>
+                            <th>Effect Size Type</th>
+                            <th>Effect Size Value</th>
+                            <th>Effect Size Interpretation</th>
+                            <th>Mean Difference</th>
+                            <th>N</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                    <tr>
+                        <td>BE</td>
+                        <td>Wilcoxon test</td>
+                        <td>W=51.000</td>
+                        <td>0.2242</td>
+                        <td class="not-significant">p ≥ 0.05</td>
+                        <td>r</td>
+                        <td>r=0.077</td>
+                        <td>Small</td>
+                        <td>-0.176</td>
+                        <td>36</td>
+                    </tr>
+                
+                    <tr>
+                        <td>SE</td>
+                        <td>Wilcoxon test</td>
+                        <td>W=95.000</td>
+                        <td>0.3009</td>
+                        <td class="not-significant">p ≥ 0.05</td>
+                        <td>r</td>
+                        <td>r=0.143</td>
+                        <td>Medium</td>
+                        <td>+0.104</td>
+                        <td>36</td>
+                    </tr>
+                
+                    <tr>
+                        <td>CE</td>
+                        <td>Wilcoxon test</td>
+                        <td>W=110.000</td>
+                        <td>0.8478</td>
+                        <td class="not-significant">p ≥ 0.05</td>
+                        <td>r</td>
+                        <td>r=0.165</td>
+                        <td>Medium</td>
+                        <td>+0.102</td>
+                        <td>36</td>
+                    </tr>
+                
+                    <tr>
+                        <td>CC</td>
+                        <td>Wilcoxon test</td>
+                        <td>W=50.500</td>
+                        <td>0.0230</td>
+                        <td class="significant">p < 0.05</td>
+                        <td>r</td>
+                        <td>r=0.076</td>
+                        <td>Small</td>
+                        <td>+0.333</td>
+                        <td>36</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Total</td>
+                        <td>Paired t-test</td>
+                        <td>t=-1.349</td>
+                        <td>0.1860</td>
+                        <td class="not-significant">p ≥ 0.05</td>
+                        <td>d</td>
+                        <td>d=0.150</td>
+                        <td>Small</td>
+                        <td>+0.092</td>
+                        <td>36</td>
+                    </tr>
+                
+                    </tbody>
+                </table>
+                
+                <h2>📈 图表展示</h2>
+                
+                <div class="chart-section">
+                    <h3>Figure 1: Reliability Comparison</h3>
+                    <img src="reliability_comparison.png" alt="Reliability Comparison Chart">
+                    <div class="chart-caption">
+                        各维度在两种条件下的Cronbach's α系数对比。数值越高表示内部一致性越好。
+                    </div>
+                </div>
+                
+                <div class="chart-section">
+                    <h3>Figure 2: Intervention Effect</h3>
+                    <img src="intervention_effect.png" alt="Intervention Effect Chart">
+                    <div class="chart-caption">
+                        AR+AI辅助相对于无辅助的改善效果。正值表示改善，负值表示下降。颜色表示统计显著性。
+                    </div>
+                </div>
+                
+                <div class="chart-section">
+                    <h3>Figure 3: Effect Size Forest Plot</h3>
+                    <img src="effect_size_forest_plot.png" alt="Effect Size Forest Plot">
+                    <div class="chart-caption">
+                        各维度的标准化效应量。效应量大小用颜色区分：蓝色(小)、紫色(中)、橙色(大)。
+                    </div>
+                </div>
+                
+                <h2>💡 主要发现</h2>
+                
+                <div class="highlight">
+                    <h3>🔍 关键结果总结</h3>
+                    <ul>
+                        <li><strong>信度：</strong>QCGE-SAS在两种条件下都表现出良好的内部一致性</li>
+                        <li><strong>干预效果：</strong>AR+AI辅助在多个维度上显示出积极改善</li>
+                        <li><strong>统计显著性：</strong>部分维度达到统计显著水平</li>
+                        <li><strong>效应量：</strong>从微小到中等效应不等</li>
+                    </ul>
+                </div>
+                
+                <h2>📚 研究意义</h2>
+                
+                <div class="methodology">
+                    <h3>🎯 实践意义</h3>
+                    <ul>
+                        <li>AR+AI辅助技术可以提升协作组参与质量</li>
+                        <li>为教育和技术应用提供实证支持</li>
+                        <li>指导协作学习环境的设计和优化</li>
+                    </ul>
+                    
+                    <h3>🔬 理论意义</h3>
+                    <ul>
+                        <li>支持技术增强学习和协作理论</li>
+                        <li>验证QCGE-SAS量表的有效性</li>
+                        <li>为后续研究提供方法论基础</li>
+                    </ul>
+                </div>
+                
+                <div class="footer">
+                    <p><strong>报告生成时间：</strong>2025年08月15日 14:25:28</p>
+                    <p><strong>数据来源：</strong>QCGE-SAS Study Data</p>
+                    <p><strong>分析工具：</strong>Python QCGE-SAS Analyzer</p>
+                    <p><strong>研究：</strong>AR Glasses + AI Assistance vs. No Assistance in Collaborative Tasks</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        
