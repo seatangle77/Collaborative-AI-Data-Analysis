@@ -1,0 +1,179 @@
+{
+    "groups_mapping": [
+        {
+            "group_key": "group01",
+            "group_id": "99ea0701-f656-4960-83c4-0a09d39e856f",
+            "session_id": "5ab15191-a1e6-40ca-b3b7-1cb880c558e8",
+            "user_count": 3,
+            "base_time_str": "2025-07-30 14:52:18"
+        },
+        {
+            "group_key": "group02",
+            "group_id": "d71b3d49-a328-44bf-a30e-7d8da310e20e",
+            "session_id": "83fafd6c-b259-4856-ac9c-6f2d25bfbe0a",
+            "user_count": 3,
+            "base_time_str": "2025-07-30 15:41:32"
+        },
+        {
+            "group_key": "group11",
+            "group_id": "a8718ebd-4504-4e97-b41a-960e0945d0bc",
+            "session_id": "5ab15191-a1e6-40ca-b3b7-1cb880c558e8",
+            "user_count": 3,
+            "base_time_str": "2025-08-03 09:13:20"
+        },
+        {
+            "group_key": "group12",
+            "group_id": "9a18b498-bf80-4af6-b07e-8aa45761ee1b",
+            "session_id": "83fafd6c-b259-4856-ac9c-6f2d25bfbe0a",
+            "user_count": 3,
+            "base_time_str": "2025-08-01 14:21:28"
+        },
+        {
+            "group_key": "group21",
+            "group_id": "71f4337e-c818-4d51-948f-ef1f2f8e6d3d",
+            "session_id": "4404717e-ea86-464b-b261-451b6770f550",
+            "user_count": 3,
+            "base_time_str": "2025-08-01 20:51:04"
+        },
+        {
+            "group_key": "group22",
+            "group_id": "650cdbc8-5c7e-4d6d-b0eb-52877650af56",
+            "session_id": "1933eaca-d00a-45ee-9aad-c84f67ac146a",
+            "user_count": 3,
+            "base_time_str": "2025-08-01 21:33:02"
+        },
+        {
+            "group_key": "group31",
+            "group_id": "b37c0f68-0397-4927-95e7-4a86058b63b3",
+            "session_id": "3197908b-c434-455b-8d0e-38ec25f7951d",
+            "user_count": 3,
+            "base_time_str": "2025-08-02 10:40:02"
+        },
+        {
+            "group_key": "group32",
+            "group_id": "45902668-cef2-4c1f-943c-3fd9a4d1ab4e",
+            "session_id": "d3718b6e-67b3-4266-914e-957e9c4e3ba2",
+            "user_count": 3,
+            "base_time_str": "2025-08-02 11:15:00"
+        },
+        {
+            "group_key": "group41",
+            "group_id": "23ea0d2d-4c7e-41af-8d39-29969f6a9bbf",
+            "session_id": "5d72e7e3-7081-4db1-af22-96d6a3c8e347",
+            "user_count": 3,
+            "base_time_str": "2025-08-02 15:33:49"
+        },
+        {
+            "group_key": "group42",
+            "group_id": "937bb3ab-e84e-4e13-a162-f72a27877005",
+            "session_id": "eaba0404-314c-4508-8b23-8e516ea05dfd",
+            "user_count": 3,
+            "base_time_str": "2025-08-02 16:25:45"
+        },
+        {
+            "group_key": "group51",
+            "group_id": "3bec03ef-9b60-47d2-9c76-cdfd261b95ca",
+            "session_id": "118d1c1e-7015-4166-b516-d7b5223c8d86",
+            "user_count": 3,
+            "base_time_str": "2025-08-02 18:25:38"
+        },
+        {
+            "group_key": "group52",
+            "group_id": "a7fdfad5-ba60-4312-8267-683ec1eb2d6f",
+            "session_id": "080988d8-6c78-476a-99d9-a0c99ce6c8fd",
+            "user_count": 3,
+            "base_time_str": "2025-08-02 18:58:24"
+        },
+        {
+            "group_key": "group61",
+            "group_id": "a506c8cc-0791-4170-9286-f89392670e5a",
+            "session_id": "d35dc380-24ac-42fc-8792-99bbe8e353d5",
+            "user_count": 3,
+            "base_time_str": "2025-08-02 20:51:07"
+        },
+        {
+            "group_key": "group62",
+            "group_id": "33e514ce-43c8-4616-bad9-92faaad64f02",
+            "session_id": "31baa269-b40d-4837-ac53-aa15fbe4ff1a",
+            "user_count": 3,
+            "base_time_str": "2025-08-02 21:29:49"
+        },
+        {
+            "group_key": "group71",
+            "group_id": "10be660b-1584-4668-9942-596d26082e0b",
+            "session_id": "6e5b5dbf-bca7-457a-84c9-3f9ff0f6c23b",
+            "user_count": 3,
+            "base_time_str": "2025-08-03 10:29:01"
+        },
+        {
+            "group_key": "group72",
+            "group_id": "dd7fb503-c15e-4f09-a465-24a542b7b3b3",
+            "session_id": "5d252adc-fbc3-48b1-8de4-309337708498",
+            "user_count": 3,
+            "base_time_str": "2025-08-03 11:14:55"
+        },
+        {
+            "group_key": "group81",
+            "group_id": "17e61c00-d2de-4578-b858-94b830521317",
+            "session_id": "b7400ad5-7f3e-4648-b3ae-d28b06433715",
+            "user_count": 3,
+            "base_time_str": "2025-08-03 16:57:33"
+        },
+        {
+            "group_key": "group82",
+            "group_id": "d05f9a52-d9fd-4afc-816c-4f47cb98c076",
+            "session_id": "d05f9a52-d9fd-4afc-816c-4f47cb98c076",
+            "user_count": 3,
+            "base_time_str": "2025-08-03 16:38:27"
+        },
+        {
+            "group_key": "group91",
+            "group_id": "51661123-1dd8-4074-9d00-1b6e0ca23dc3",
+            "session_id": "e4d2f6d3-2713-467f-9058-b91e26f03e6c",
+            "user_count": 3,
+            "base_time_str": "2025-08-04 10:27:42"
+        },
+        {
+            "group_key": "group92",
+            "group_id": "c064545e-8220-4e31-bf24-0095da3f1300",
+            "session_id": "713cb6ab-fc7b-40c5-9289-05116d120748",
+            "user_count": 3,
+            "base_time_str": "2025-08-04 11:06:00"
+        },
+        {
+            "group_key": "groupa1",
+            "group_id": "b1f9d958-6c2e-4088-b580-b4853f5939ad",
+            "session_id": "b33c4043-367c-45c7-81c0-8f0deaa8e0ff",
+            "user_count": 3,
+            "base_time_str": "2025-08-04 13:17:31"
+        },
+        {
+            "group_key": "groupa2",
+            "group_id": "9b1317bf-3d6c-4fd9-b2c0-c2940e9145ba",
+            "session_id": "495aa2de-fb65-4d3d-ad0b-3a48ff6c0f71",
+            "user_count": 3,
+            "base_time_str": "2025-08-04 13:54:19"
+        },
+        {
+            "group_key": "groupb1",
+            "group_id": "874db45b-cb84-4763-850f-fa01103899da",
+            "session_id": "3b4de935-ed35-4b22-8437-28961a258964",
+            "user_count": 3,
+            "base_time_str": "2025-08-04 16:33:46"
+        },
+        {
+            "group_key": "groupb2",
+            "group_id": "491ad2be-4849-4066-826b-599185b400e9",
+            "session_id": "fdd891c5-71cf-4640-b475-0924d2bbcd02",
+            "user_count": 3,
+            "base_time_str": "2025-08-04 17:12:36"
+        }
+    ],
+    "summary": {
+        "total_groups": 24,
+        "groups_with_files": 24,
+        "groups_without_files": 0,
+        "total_users": 72,
+        "average_users_per_group": 3.0
+    }
+}
