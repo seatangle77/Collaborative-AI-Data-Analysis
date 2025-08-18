@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>专家评分分析报告</title>
+
+    <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; margin: 24px; }
+    h1, h2, h3 { margin: 0.4em 0 0.2em; }
+    .meta { color: #666; font-size: 0.9em; margin-bottom: 18px; }
+    .section { margin: 26px 0; }
+    .data-table { border-collapse: collapse; width: 100%; font-size: 14px; }
+    .data-table th, .data-table td { border: 1px solid #e5e7eb; padding: 6px 8px; }
+    .data-table th { background: #f8fafc; text-align: left; }
+    .hint { color: #374151; background: #f3f4f6; padding: 10px 12px; border-radius: 6px; }
+    img.figure { max-width: 100%; height: auto; border: 1px solid #e5e7eb; border-radius: 6px; margin: 8px 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+    </style>
+    
+</head>
+<body>
+<h1>专家评分分析报告</h1>
+<div class="meta">生成时间：2025-08-18 17:04</div>
+<div class="section">
+<h2>1. 描述性统计</h2>
+<div class="hint">说明：本表给出两位专家（E1/E2）在三类分数（Process/Outcome/Total）上的分布特征，包括均值、标准差及分位数；同时提供按条件（AI/NoAI）分组的统计。用于观察分布是否存在天花板/地板效应与条件差异。若表格为空，请先运行前置脚本生成中间结果：expert_consistency_analyzer.py、within_group_analysis.py。</div>
+<table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Score</th>
+      <th>Expert</th>
+      <th>Scope</th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Process Score</td>
+      <td>E1</td>
+      <td>Overall</td>
+      <td>24.0</td>
+      <td>3.000000</td>
+      <td>1.693979</td>
+      <td>0.0</td>
+      <td>2.00</td>
+      <td>3.0</td>
+      <td>5.00</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <td>Outcome Score</td>
+      <td>E1</td>
+      <td>Overall</td>
+      <td>24.0</td>
+      <td>0.708333</td>
+      <td>0.907896</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>2.00</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td>Total Score</td>
+      <td>E1</td>
+      <td>Overall</td>
+      <td>24.0</td>
+      <td>3.750000</td>
+      <td>2.363674</td>
+      <td>0.0</td>
+      <td>2.00</td>
+      <td>3.0</td>
+      <td>6.00</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <td>Process Score</td>
+      <td>E1</td>
+      <td>Condition=AI</td>
+      <td>12.0</td>
+      <td>2.750000</td>
+      <td>1.864745</td>
+      <td>0.0</td>
+      <td>1.75</td>
+      <td>2.5</td>
+      <td>4.25</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <td>Outcome Score</td>
+      <td>E1</td>
+      <td>Condition=AI</td>
+      <td>12.0</td>
+      <td>0.583333</td>
+      <td>0.900337</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>1.25</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td>Total Score</td>
+      <td>E1</td>
+      <td>Condition=AI</td>
+      <td>12.0</td>
+      <td>3.416667</td>
+      <td>2.429303</td>
+      <td>0.0</td>
+      <td>1.75</td>
+      <td>3.0</td>
+      <td>5.25</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <td>Process Score</td>
+      <td>E1</td>
+      <td>Condition=NoAI</td>
+      <td>12.0</td>
+      <td>3.250000</td>
+      <td>1.544786</td>
+      <td>1.0</td>
+      <td>2.00</td>
+      <td>3.0</td>
+      <td>5.00</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <td>Outcome Score</td>
+      <td>E1</td>
+      <td>Condition=NoAI</td>
+      <td>12.0</td>
+      <td>0.833333</td>
+      <td>0.937437</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.5</td>
+      <td>2.00</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td>Total Score</td>
+      <td>E1</td>
+      <td>Condition=NoAI</td>
+      <td>12.0</td>
+      <td>4.083333</td>
+      <td>2.353270</td>
+      <td>1.0</td>
+      <td>2.75</td>
+      <td>3.0</td>
+      <td>6.25</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <td>Process Score</td>
+      <td>E2</td>
+      <td>Overall</td>
+      <td>24.0</td>
+      <td>3.458333</td>
+      <td>1.559798</td>
+      <td>0.0</td>
+      <td>2.75</td>
+      <td>4.0</td>
+      <td>5.00</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <td>Outcome Score</td>
+      <td>E2</td>
+      <td>Overall</td>
+      <td>24.0</td>
+      <td>1.041667</td>
+      <td>0.750604</td>
+      <td>0.0</td>
+      <td>0.75</td>
+      <td>1.0</td>
+      <td>2.00</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td>Total Score</td>
+      <td>E2</td>
+      <td>Overall</td>
+      <td>24.0</td>
+      <td>4.916667</td>
+      <td>1.282547</td>
+      <td>2.0</td>
+      <td>4.00</td>
+      <td>5.0</td>
+      <td>6.00</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <td>Process Score</td>
+      <td>E2</td>
+      <td>Condition=AI</td>
+      <td>12.0</td>
+      <td>3.583333</td>
+      <td>1.443376</td>
+      <td>0.0</td>
+      <td>3.00</td>
+      <td>4.0</td>
+      <td>4.25</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <td>Outcome Score</td>
+      <td>E2</td>
+      <td>Condition=AI</td>
+      <td>12.0</td>
+      <td>0.916667</td>
+      <td>0.792961</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.0</td>
+      <td>1.25</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td>Total Score</td>
+      <td>E2</td>
+      <td>Condition=AI</td>
+      <td>12.0</td>
+      <td>4.916667</td>
+      <td>1.240112</td>
+      <td>3.0</td>
+      <td>4.00</td>
+      <td>5.0</td>
+      <td>6.00</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <td>Process Score</td>
+      <td>E2</td>
+      <td>Condition=NoAI</td>
+      <td>12.0</td>
+      <td>3.333333</td>
+      <td>1.723281</td>
+      <td>0.0</td>
+      <td>2.00</td>
+      <td>4.0</td>
+      <td>5.00</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <td>Outcome Score</td>
+      <td>E2</td>
+      <td>Condition=NoAI</td>
+      <td>12.0</td>
+      <td>1.166667</td>
+      <td>0.717741</td>
+      <td>0.0</td>
+      <td>1.00</td>
+      <td>1.0</td>
+      <td>2.00</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td>Total Score</td>
+      <td>E2</td>
+      <td>Condition=NoAI</td>
+      <td>12.0</td>
+      <td>4.916667</td>
+      <td>1.378954</td>
+      <td>2.0</td>
+      <td>4.75</td>
+      <td>5.0</td>
+      <td>6.00</td>
+      <td>7.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="section">
+<h2>2. 专家间一致性（ICC）</h2>
+<div class="hint">说明：ICC(2,k) 为双向随机效应、绝对一致、平均评分。一致性阈值常用：≥0.70 可合并；0.50–0.70 中等一致性（谨慎解读）；<0.50 不建议合并。表中CI为95%置信区间，若跨0则一致性证据不足。Overall 使用全部样本；Condition=AI/NoAI 分别仅使用对应条件的样本。</div>
+<table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Score</th>
+      <th>Scope</th>
+      <th>Expert1</th>
+      <th>Expert2</th>
+      <th>ExpertPair</th>
+      <th>N</th>
+      <th>ICC_2k</th>
+      <th>CI95_L</th>
+      <th>CI95_U</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Process Score</td>
+      <td>Overall</td>
+      <td>E1</td>
+      <td>E2</td>
+      <td>E1_vs_E2</td>
+      <td>24</td>
+      <td>-0.605133</td>
+      <td>-4.565049</td>
+      <td>0.341376</td>
+    </tr>
+    <tr>
+      <td>Outcome Score</td>
+      <td>Overall</td>
+      <td>E1</td>
+      <td>E2</td>
+      <td>E1_vs_E2</td>
+      <td>24</td>
+      <td>0.544144</td>
+      <td>0.028951</td>
+      <td>0.806193</td>
+    </tr>
+    <tr>
+      <td>Total Score</td>
+      <td>Overall</td>
+      <td>E1</td>
+      <td>E2</td>
+      <td>E1_vs_E2</td>
+      <td>24</td>
+      <td>-0.486309</td>
+      <td>-1.882389</td>
+      <td>0.132904</td>
+    </tr>
+    <tr>
+      <td>Process Score</td>
+      <td>Condition=AI</td>
+      <td>E1</td>
+      <td>E2</td>
+      <td>E1_vs_E2</td>
+      <td>12</td>
+      <td>0.208817</td>
+      <td>-4.327959</td>
+      <td>0.774396</td>
+    </tr>
+    <tr>
+      <td>Outcome Score</td>
+      <td>Condition=AI</td>
+      <td>E1</td>
+      <td>E2</td>
+      <td>E1_vs_E2</td>
+      <td>12</td>
+      <td>0.330435</td>
+      <td>-0.774194</td>
+      <td>0.789126</td>
+    </tr>
+    <tr>
+      <td>Total Score</td>
+      <td>Condition=AI</td>
+      <td>E1</td>
+      <td>E2</td>
+      <td>E1_vs_E2</td>
+      <td>12</td>
+      <td>-0.023689</td>
+      <td>-1.544123</td>
+      <td>0.473879</td>
+    </tr>
+    <tr>
+      <td>Process Score</td>
+      <td>Condition=NoAI</td>
+      <td>E1</td>
+      <td>E2</td>
+      <td>E1_vs_E2</td>
+      <td>12</td>
+      <td>-3.942029</td>
+      <td>-48.803810</td>
+      <td>30.892063</td>
+    </tr>
+    <tr>
+      <td>Outcome Score</td>
+      <td>Condition=NoAI</td>
+      <td>E1</td>
+      <td>E2</td>
+      <td>E1_vs_E2</td>
+      <td>12</td>
+      <td>0.702703</td>
+      <td>0.025316</td>
+      <td>0.939227</td>
+    </tr>
+    <tr>
+      <td>Total Score</td>
+      <td>Condition=NoAI</td>
+      <td>E1</td>
+      <td>E2</td>
+      <td>E1_vs_E2</td>
+      <td>12</td>
+      <td>-1.634981</td>
+      <td>-8.181495</td>
+      <td>0.012078</td>
+    </tr>
+  </tbody>
+</table>
+<img class="figure" src="consistency_plots/icc_by_condition_summary_scores.png" alt="ICC by Condition (Summary Scores)"/>
+</div>
+<div class="section">
+<h2>3. 组内对照（AI vs NoAI）</h2>
+<table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Expert</th>
+      <th>Score</th>
+      <th>N_pairs</th>
+      <th>Test</th>
+      <th>Statistic</th>
+      <th>P_value_raw</th>
+      <th>Effect</th>
+      <th>Effect_name</th>
+      <th>Mean_Diff_AI_minus_NoAI</th>
+      <th>CI95_L</th>
+      <th>CI95_U</th>
+      <th>SESOI</th>
+      <th>CI_within_SESOI</th>
+      <th>TOST_p_lower</th>
+      <th>TOST_p_upper</th>
+      <th>TOST_p</th>
+      <th>TOST_equivalent</th>
+      <th>Equivalence_Conclusion</th>
+      <th>P_value_adj_Holm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>E1</td>
+      <td>Process Score</td>
+      <td>12</td>
+      <td>paired_t</td>
+      <td>-1.393261</td>
+      <td>0.191054</td>
+      <td>-0.402200</td>
+      <td>Cohen_dz</td>
+      <td>-0.500000</td>
+      <td>-1.289868</td>
+      <td>0.289868</td>
+      <td>0.5</td>
+      <td>False</td>
+      <td>0.500000</td>
+      <td>0.008848</td>
+      <td>0.500000</td>
+      <td>False</td>
+      <td>Not equivalent</td>
+      <td>0.573163</td>
+    </tr>
+    <tr>
+      <td>E1</td>
+      <td>Outcome Score</td>
+      <td>12</td>
+      <td>wilcoxon</td>
+      <td>3.000000</td>
+      <td>0.625000</td>
+      <td>-0.141098</td>
+      <td>r_rb_approx</td>
+      <td>-0.250000</td>
+      <td>-0.833333</td>
+      <td>0.333333</td>
+      <td>0.3</td>
+      <td>False</td>
+      <td>0.436303</td>
+      <td>0.049210</td>
+      <td>0.436303</td>
+      <td>False</td>
+      <td>Not equivalent</td>
+      <td>0.625000</td>
+    </tr>
+    <tr>
+      <td>E1</td>
+      <td>Total Score</td>
+      <td>12</td>
+      <td>paired_t</td>
+      <td>-1.172604</td>
+      <td>0.265723</td>
+      <td>-0.338502</td>
+      <td>Cohen_dz</td>
+      <td>-0.666667</td>
+      <td>-1.918004</td>
+      <td>0.584671</td>
+      <td>0.7</td>
+      <td>False</td>
+      <td>0.477149</td>
+      <td>0.017497</td>
+      <td>0.477149</td>
+      <td>False</td>
+      <td>Not equivalent</td>
+      <td>0.573163</td>
+    </tr>
+    <tr>
+      <td>E2</td>
+      <td>Process Score</td>
+      <td>12</td>
+      <td>paired_t</td>
+      <td>0.820652</td>
+      <td>0.429271</td>
+      <td>0.236902</td>
+      <td>Cohen_dz</td>
+      <td>0.250000</td>
+      <td>-0.420499</td>
+      <td>0.920499</td>
+      <td>0.5</td>
+      <td>False</td>
+      <td>0.015785</td>
+      <td>0.214635</td>
+      <td>0.214635</td>
+      <td>False</td>
+      <td>Not equivalent</td>
+      <td>0.858541</td>
+    </tr>
+    <tr>
+      <td>E2</td>
+      <td>Outcome Score</td>
+      <td>12</td>
+      <td>wilcoxon</td>
+      <td>0.000000</td>
+      <td>0.250000</td>
+      <td>-0.332077</td>
+      <td>r_rb_approx</td>
+      <td>-0.250000</td>
+      <td>-0.500000</td>
+      <td>0.000000</td>
+      <td>0.3</td>
+      <td>False</td>
+      <td>0.354519</td>
+      <td>0.000727</td>
+      <td>0.354519</td>
+      <td>False</td>
+      <td>Not equivalent</td>
+      <td>0.750000</td>
+    </tr>
+    <tr>
+      <td>E2</td>
+      <td>Total Score</td>
+      <td>12</td>
+      <td>paired_t</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>Cohen_dz</td>
+      <td>0.000000</td>
+      <td>-0.812768</td>
+      <td>0.812768</td>
+      <td>0.7</td>
+      <td>False</td>
+      <td>0.042288</td>
+      <td>0.042288</td>
+      <td>0.042288</td>
+      <td>True</td>
+      <td>Probably equivalent</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+<h3>3.1 配对连线图（每组从 NoAI 到 AI 的变化）</h3>
+<div class="hint">说明：每条线代表一个组，从 NoAI 指向 AI。可直观看到各组方向与幅度；若线条方向杂乱，说明不同组变化趋势不一致。</div>
+<div class="grid">
+<div><img class="figure" src="consistency_plots/paired_lines_E1_Outcome_Score.png" alt="paired_lines_E1_Outcome_Score.png"/><div style="font-size:12px;color:#6b7280;">paired_lines_E1_Outcome_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/paired_lines_E1_Process_Score.png" alt="paired_lines_E1_Process_Score.png"/><div style="font-size:12px;color:#6b7280;">paired_lines_E1_Process_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/paired_lines_E1_Total_Score.png" alt="paired_lines_E1_Total_Score.png"/><div style="font-size:12px;color:#6b7280;">paired_lines_E1_Total_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/paired_lines_E2_Outcome_Score.png" alt="paired_lines_E2_Outcome_Score.png"/><div style="font-size:12px;color:#6b7280;">paired_lines_E2_Outcome_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/paired_lines_E2_Process_Score.png" alt="paired_lines_E2_Process_Score.png"/><div style="font-size:12px;color:#6b7280;">paired_lines_E2_Process_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/paired_lines_E2_Total_Score.png" alt="paired_lines_E2_Total_Score.png"/><div style="font-size:12px;color:#6b7280;">paired_lines_E2_Total_Score.png</div></div>
+</div>
+<h3>3.2 差值柱状图（AI − NoAI）</h3>
+<div class="hint">说明：每根柱表示一个组的差值（AI−NoAI），上方红线为整体均值，虚线为95%CI。整体均值与零线的关系体现总体差异方向与大小。</div>
+<div class="grid">
+<div><img class="figure" src="consistency_plots/diff_bar_E1_Outcome_Score.png" alt="diff_bar_E1_Outcome_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_bar_E1_Outcome_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/diff_bar_E1_Process_Score.png" alt="diff_bar_E1_Process_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_bar_E1_Process_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/diff_bar_E1_Total_Score.png" alt="diff_bar_E1_Total_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_bar_E1_Total_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/diff_bar_E2_Outcome_Score.png" alt="diff_bar_E2_Outcome_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_bar_E2_Outcome_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/diff_bar_E2_Process_Score.png" alt="diff_bar_E2_Process_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_bar_E2_Process_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/diff_bar_E2_Total_Score.png" alt="diff_bar_E2_Total_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_bar_E2_Total_Score.png</div></div>
+</div>
+<h3>3.3 差值箱线图（AI − NoAI 的分布）</h3>
+<div class="hint">说明：展示所有组的差值分布与离群点，红线为均值。与柱状图互为补充，有助于识别分布偏态与极端值。</div>
+<div class="grid">
+<div><img class="figure" src="consistency_plots/diff_box_E1_Outcome_Score.png" alt="diff_box_E1_Outcome_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_box_E1_Outcome_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/diff_box_E1_Process_Score.png" alt="diff_box_E1_Process_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_box_E1_Process_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/diff_box_E1_Total_Score.png" alt="diff_box_E1_Total_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_box_E1_Total_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/diff_box_E2_Outcome_Score.png" alt="diff_box_E2_Outcome_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_box_E2_Outcome_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/diff_box_E2_Process_Score.png" alt="diff_box_E2_Process_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_box_E2_Process_Score.png</div></div>
+<div><img class="figure" src="consistency_plots/diff_box_E2_Total_Score.png" alt="diff_box_E2_Total_Score.png"/><div style="font-size:12px;color:#6b7280;">diff_box_E2_Total_Score.png</div></div>
+</div>
+</div>
+<div class="section">
+<h2>4. 解读提示</h2>
+<ul>
+<li>ICC ≥ 0.70：可合并；0.50–0.70：中等一致性，谨慎解读；&lt; 0.50：不建议合并。</li>
+<li>本数据：Process、Total 整体一致性不足；Outcome 仅在 NoAI 条件下达到可合并水平。</li>
+<li>组内对照建议优先 Wilcoxon；同时报告效应量与多重比较校正结果。</li>
+</ul>
+</div>
+</body>
+</html>
