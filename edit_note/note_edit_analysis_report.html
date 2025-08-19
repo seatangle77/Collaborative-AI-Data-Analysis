@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Edit Data Analysis Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        .header { background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 30px; }
+        .section { margin-bottom: 30px; }
+        .section h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .table-container { overflow-x: auto; margin: 20px 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .highlight { background-color: #fff3cd; padding: 15px; border-radius: 5px; border-left: 4px solid #ffc107; }
+        .normal-test { background-color: #d1ecf1; padding: 15px; border-radius: 5px; border-left: 4px solid #17a2b8; }
+        .plot { text-align: center; margin: 20px 0; }
+        .plot img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; }
+        .footer { margin-top: 50px; padding: 20px; background-color: #f8f9fa; border-radius: 5px; text-align: center; color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Note Edit Data Analysis Report</h1>
+        <p><strong>Analysis Date:</strong> 2025-08-19 19:22:41</p>
+        <p><strong>Data Source:</strong> /Users/lianghuiyang/Desktop/Project Space/Collaborative-AI-Data-Analysis/edit_note/note_edit_summary_by_member.csv</p>
+        <p><strong>Total Records:</strong> 72</p>
+    </div>
+
+    <div class="section">
+        <h2>🔍 Study Overview</h2>
+        <p>This analysis examines the impact of AI assistance on collaborative note editing behavior, focusing on:</p>
+        <ul>
+            <li><strong>Engagement:</strong> Individual participation level (characters per minute)</li>
+            <li><strong>Balance:</strong> Group participation distribution (Gini coefficient)</li>
+            <li><strong>Comparison:</strong> AI vs NoAI conditions</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📈 Descriptive Statistics</h2>
+        <div class="table-container">
+            <table border="1" class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Engagement_count</th>
+      <th>Engagement_mean</th>
+      <th>Engagement_std</th>
+      <th>Engagement_min</th>
+      <th>Engagement_max</th>
+      <th>Net_Chars_mean</th>
+      <th>Net_Chars_std</th>
+      <th>Net_Chars_min</th>
+      <th>Net_Chars_max</th>
+      <th>Total_Edit_Count_mean</th>
+      <th>Total_Edit_Count_std</th>
+      <th>Active_Time_Windows_mean</th>
+      <th>Active_Time_Windows_std</th>
+    </tr>
+    <tr>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AI</th>
+      <td>36</td>
+      <td>223.622</td>
+      <td>248.140</td>
+      <td>0.0</td>
+      <td>1072.6</td>
+      <td>6708.667</td>
+      <td>7444.208</td>
+      <td>0.0</td>
+      <td>32178.0</td>
+      <td>28.111</td>
+      <td>20.331</td>
+      <td>28.083</td>
+      <td>20.350</td>
+    </tr>
+    <tr>
+      <th>NoAI</th>
+      <td>36</td>
+      <td>215.991</td>
+      <td>235.145</td>
+      <td>0.0</td>
+      <td>1052.2</td>
+      <td>6479.722</td>
+      <td>7054.355</td>
+      <td>0.0</td>
+      <td>31566.0</td>
+      <td>29.806</td>
+      <td>22.312</td>
+      <td>27.667</td>
+      <td>19.719</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔬 Normality Test Results</h2>
+        <div class="normal-test">
+            <h3>Shapiro-Wilk Normality Test for Differences (AI - NoAI):</h3>
+            <table border="1" class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Metric</th>
+      <th>Is_Normal</th>
+      <th>Shapiro_Wilk_p</th>
+      <th>Test_Used</th>
+      <th>Interpretation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Engagement</td>
+      <td>No</td>
+      <td>0.0309</td>
+      <td>Wilcoxon signed-rank test</td>
+      <td>Non-normal distribution - Wilcoxon test used</td>
+    </tr>
+    <tr>
+      <td>Net_Chars</td>
+      <td>No</td>
+      <td>0.0309</td>
+      <td>Wilcoxon signed-rank test</td>
+      <td>Non-normal distribution - Wilcoxon test used</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        <p><em>Note: p > 0.05 indicates normal distribution. Normal data uses paired t-test, non-normal data uses Wilcoxon signed-rank test.</em></p>
+    </div>
+
+    <div class="section">
+        <h2>🧮 Statistical Analysis Results</h2>
+        <div class="table-container">
+            <table border="1" class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Metric</th>
+      <th>Test Type</th>
+      <th>P-Value</th>
+      <th>Effect Size (Cohen's d)</th>
+      <th>Sample Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Engagement</td>
+      <td>Wilcoxon signed-rank test</td>
+      <td>0.8951</td>
+      <td>0.032</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>Net_Chars</td>
+      <td>Wilcoxon signed-rank test</td>
+      <td>0.8951</td>
+      <td>0.032</td>
+      <td>36</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        
+        <div class="highlight">
+            <h3>Key Findings:</h3>
+            <ul>
+                
+                <li><strong>Engagement:</strong> Not significant difference (p=0.8951, d=0.032)</li>
+                
+                <li><strong>Net_Chars:</strong> Not significant difference (p=0.8951, d=0.032)</li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📊 Visualizations</h2>
+        <div class="plot">
+            <img src="note_edit_analysis_plots.png" alt="Analysis Plots">
+            <p><em>Figure: Engagement distribution, Gini coefficients, and net characters distribution by experimental condition</em></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📋 Data Quality Information</h2>
+        <ul>
+            <li><strong>Missing Values:</strong> 0 missing values found</li>
+            <li><strong>Data Range:</strong> Engagement: 0.00 - 1072.60</li>
+            <li><strong>Outliers:</strong> Outlier detection not implemented in this version</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>Report generated automatically by Note Edit Data Analyzer</p>
+        <p>For questions or issues, please contact the research team</p>
+    </div>
+</body>
+</html>
+        

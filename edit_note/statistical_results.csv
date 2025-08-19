@@ -1,0 +1,3 @@
+Metric,Test_Type,Test_Statistic,P_Value,Is_Normal,Shapiro_Wilk_P_Value,Cohens_d,N_Pairs
+Engagement,Wilcoxon signed-rank test,324.0,0.8950681856949814,False,0.030870366951596055,0.03157026445927767,36
+Net_Chars,Wilcoxon signed-rank test,324.0,0.8950681856949814,False,0.030870366951596895,0.03157026445927758,36

@@ -1,0 +1,326 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>发言指标配对分析报告</title>
+        <style>
+            body { font-family: 'Microsoft YaHei', Arial, sans-serif; margin: 20px; }
+            h1, h2, h3 { color: #2c3e50; }
+            .section { margin: 20px 0; padding: 15px; border-left: 4px solid #3498db; background-color: #f8f9fa; }
+            .result-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+            .result-table th, .result-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            .result-table th { background-color: #3498db; color: white; }
+            .significant { color: #e74c3c; font-weight: bold; }
+            .not-significant { color: #27ae60; }
+            .metric { font-weight: bold; color: #8e44ad; }
+        </style>
+    </head>
+    <body>
+        <h1>发言指标配对分析报告</h1>
+        
+        <div class="section">
+            <h2>1. 研究概述</h2>
+            <p>本报告分析了AI辅助与无AI辅助条件下，小组发言行为的差异。通过配对t检验比较了发言总时长、发言次数和发言均衡性三个关键指标。</p>
+            <p><strong>样本量：</strong> 12 个配对小组</p>
+            <p><strong>分析指标：</strong> 发言总时长(秒)、发言次数(段落数)、发言均衡性(Gini系数)</p>
+        </div>
+        
+        <div class="section">
+            <h2>2. 描述性统计</h2>
+            <h3>2.1 基本统计量</h3>
+            <table border="1" class="dataframe result-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">AI组</th>
+      <th colspan="3" halign="left">NoAI组</th>
+      <th colspan="3" halign="left">差值(AI-NoAI)</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>ai_total</th>
+      <th>ai_count</th>
+      <th>ai_gini</th>
+      <th>noai_total</th>
+      <th>noai_count</th>
+      <th>noai_gini</th>
+      <th>diff_total</th>
+      <th>diff_count</th>
+      <th>diff_gini</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>12.000000</td>
+      <td>12.000000</td>
+      <td>12.000000</td>
+      <td>12.000000</td>
+      <td>12.000000</td>
+      <td>12.000000</td>
+      <td>12.000000</td>
+      <td>12.000000</td>
+      <td>12.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>869.526667</td>
+      <td>46.333333</td>
+      <td>0.192750</td>
+      <td>905.393333</td>
+      <td>47.916667</td>
+      <td>0.264083</td>
+      <td>-35.866667</td>
+      <td>-1.583333</td>
+      <td>-0.071333</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>352.799803</td>
+      <td>13.865151</td>
+      <td>0.093264</td>
+      <td>389.851804</td>
+      <td>18.927893</td>
+      <td>0.079200</td>
+      <td>138.329498</td>
+      <td>9.149847</td>
+      <td>0.108820</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>296.180000</td>
+      <td>20.000000</td>
+      <td>0.036000</td>
+      <td>425.720000</td>
+      <td>19.000000</td>
+      <td>0.162000</td>
+      <td>-219.760000</td>
+      <td>-14.000000</td>
+      <td>-0.223000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>576.322500</td>
+      <td>36.500000</td>
+      <td>0.148500</td>
+      <td>498.072500</td>
+      <td>33.250000</td>
+      <td>0.214250</td>
+      <td>-128.245000</td>
+      <td>-7.500000</td>
+      <td>-0.164250</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>990.840000</td>
+      <td>46.000000</td>
+      <td>0.173000</td>
+      <td>1012.415000</td>
+      <td>47.500000</td>
+      <td>0.244000</td>
+      <td>-39.640000</td>
+      <td>-2.000000</td>
+      <td>-0.067000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1066.830000</td>
+      <td>57.750000</td>
+      <td>0.241750</td>
+      <td>1205.287500</td>
+      <td>59.250000</td>
+      <td>0.282250</td>
+      <td>14.682500</td>
+      <td>2.250000</td>
+      <td>-0.004750</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1452.280000</td>
+      <td>65.000000</td>
+      <td>0.351000</td>
+      <td>1474.130000</td>
+      <td>79.000000</td>
+      <td>0.411000</td>
+      <td>265.840000</td>
+      <td>21.000000</td>
+      <td>0.094000</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        
+        <div class="section">
+            <h2>3. 正态性检验结果</h2>
+            <p>使用Shapiro-Wilk检验评估差值分布的正态性：</p>
+            <table class="result-table">
+                <tr>
+                    <th>指标</th>
+                    <th>Shapiro统计量</th>
+                    <th>p值</th>
+                    <th>是否正态</th>
+                </tr>
+    
+                <tr>
+                    <td class="metric">Total</td>
+                    <td>0.9481</td>
+                    <td>0.6101</td>
+                    <td class="not-significant">是</td>
+                </tr>
+        
+                <tr>
+                    <td class="metric">Count</td>
+                    <td>0.9137</td>
+                    <td>0.2382</td>
+                    <td class="not-significant">是</td>
+                </tr>
+        
+                <tr>
+                    <td class="metric">Gini</td>
+                    <td>0.9325</td>
+                    <td>0.4072</td>
+                    <td class="not-significant">是</td>
+                </tr>
+        
+            </table>
+            <p><em>注：p > 0.05表示数据符合正态分布</em></p>
+        </div>
+        
+        <div class="section">
+            <h2>4. 配对t检验结果</h2>
+            <p>比较AI组与NoAI组在各指标上的差异：</p>
+            <table class="result-table">
+                <tr>
+                    <th>指标</th>
+                    <th>t值</th>
+                    <th>p值</th>
+                    <th>效应量(Cohen's d)</th>
+                    <th>均值差值</th>
+                    <th>95%置信区间</th>
+                    <th>显著性</th>
+                </tr>
+    
+                <tr>
+                    <td class="metric">发言总时长(秒)</td>
+                    <td>-0.8982</td>
+                    <td>0.3883</td>
+                    <td>-0.2593</td>
+                    <td>-35.8667</td>
+                    <td>[-123.7570, 52.0237]</td>
+                    <td class="not-significant">不显著</td>
+                </tr>
+        
+                <tr>
+                    <td class="metric">发言次数(段落数)</td>
+                    <td>-0.5994</td>
+                    <td>0.5610</td>
+                    <td>-0.1730</td>
+                    <td>-1.5833</td>
+                    <td>[-7.3969, 4.2302]</td>
+                    <td class="not-significant">不显著</td>
+                </tr>
+        
+                <tr>
+                    <td class="metric">发言均衡性(Gini系数)</td>
+                    <td>-2.2708</td>
+                    <td>0.0442</td>
+                    <td>-0.6555</td>
+                    <td>-0.0713</td>
+                    <td>[-0.1405, -0.0022]</td>
+                    <td class="significant">显著</td>
+                </tr>
+        
+            </table>
+            <p><em>注：* p < 0.05表示差异显著</em></p>
+        </div>
+        
+        <div class="section">
+            <h2>5. 均衡性分析结果</h2>
+            <p>重点分析AI对发言均衡性的影响：</p>
+            <table class="result-table">
+                <tr>
+                    <th>分析项目</th>
+                    <th>结果</th>
+                </tr>
+                <tr>
+                    <td>Gini系数差值均值</td>
+                    <td>-0.0713</td>
+                </tr>
+                <tr>
+                    <td>Gini系数差值标准差</td>
+                    <td>0.1042</td>
+                </tr>
+                <tr>
+                    <td>t统计量</td>
+                    <td>-2.2708</td>
+                </tr>
+                <tr>
+                    <td>p值</td>
+                    <td>0.0442</td>
+                </tr>
+                <tr>
+                    <td>差异显著性</td>
+                    <td class="significant">
+                        显著
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>6. 可视化图表</h2>
+            <p>以下是分析过程中生成的可视化图表：</p>
+            
+            <h3>6.1 配对线图</h3>
+            <img src="paired_lines_speech_metrics.png" alt="配对线图" style="width:100%; max-width:800px; height:auto;">
+            
+            <h3>6.2 箱线图</h3>
+            <img src="boxplots_speech_metrics.png" alt="箱线图" style="width:100%; max-width:800px; height:auto;">
+            
+            <h3>6.3 正态性检验图</h3>
+            <h4>发言总时长差值正态性检验</h4>
+            <img src="normality_diff_total.png" alt="总时长差值正态性检验" style="width:100%; max-width:800px; height:auto;">
+            
+            <h4>发言次数差值正态性检验</h4>
+            <img src="normality_diff_count.png" alt="次数差值正态性检验" style="width:100%; max-width:800px; height:auto;">
+            
+            <h4>发言均衡性差值正态性检验</h4>
+            <img src="normality_diff_gini.png" alt="Gini系数差值正态性检验" style="width:100%; max-width:800px; height:auto;">
+            
+            <h3>6.4 效应量森林图</h3>
+            <img src="effect_size_forest_plot.png" alt="效应量森林图" style="width:100%; max-width:800px; height:auto;">
+            
+            <h3>6.5 均衡性分析图</h3>
+            <img src="gini_equilibrium_analysis.png" alt="均衡性分析图" style="width:100%; max-width:800px; height:auto;">
+        </div>
+        
+        <div class="section">
+            <h2>7. 结论与建议</h2>
+            <p>基于以上分析结果，可以得出以下结论：</p>
+            <ul>
+                <li>发言总时长：两组间无显著差异</li>
+                <li>发言次数：两组间无显著差异</li>
+                <li>发言均衡性：AI组显著影响发言均衡性</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>8. 数据文件说明</h2>
+            <p>本分析生成了以下数据文件：</p>
+            <ul>
+                <li><strong>paired_speech_data.csv：</strong> 完整的配对数据</li>
+                <li><strong>speech_differences.csv：</strong> 差值数据</li>
+                <li><strong>descriptive_statistics.csv：</strong> 描述性统计</li>
+                <li><strong>normality_test_results.csv：</strong> 正态性检验结果</li>
+                <li><strong>paired_ttest_results.csv：</strong> 配对t检验结果</li>
+                <li><strong>equilibrium_analysis_results.csv：</strong> 均衡性分析结果</li>
+            </ul>
+        </div>
+        
+        <hr>
+        <p><em>报告生成时间：2025-08-19 14:24:29</em></p>
+    </body>
+    </html>
+    

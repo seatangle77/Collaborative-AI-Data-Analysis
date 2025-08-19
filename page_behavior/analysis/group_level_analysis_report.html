@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Group-level Page Behavior Analysis</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; margin: 16px; }
+    h1,h2 { margin: 12px 0; }
+    img { max-width: 900px; display: block; margin: 12px 0; }
+    table { border-collapse: collapse; }
+    table, th, td { border: 1px solid #ccc; padding: 6px 10px; }
+  </style>
+  </head>
+  <body>
+    <h1>Group-level Page Behavior Analysis</h1>
+    <p>Input: /Users/lianghuiyang/Desktop/Project Space/Collaborative-AI-Data-Analysis/page_behavior/page_behavior_preprocessed.csv</p>
+
+    <h2>1) Descriptive statistics (group means)</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Type</th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AI</td>
+      <td>23.987963</td>
+      <td>13.854311</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>NoAI</td>
+      <td>19.739815</td>
+      <td>11.130155</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+    <img src="groups_bar_op_freq.png" alt="Bar: AI vs NoAI" />
+    <img src="groups_box_op_freq.png" alt="Box: AI vs NoAI" />
+
+    <h2>2) Normality test (Diff = AI - NoAI)</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>W</th>
+      <th>p</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.952475</td>
+      <td>0.673406</td>
+    </tr>
+  </tbody>
+</table>
+    <img src="diff_hist_groups.png" alt="Diff histogram" />
+    <img src="qqplot_groups_diff.png" alt="QQ Plot" />
+
+    <h2>3) Paired test and effect size</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>test</th>
+      <th>stat</th>
+      <th>p</th>
+      <th>mean_diff</th>
+      <th>ci_lo</th>
+      <th>ci_hi</th>
+      <th>dz</th>
+      <th>dz_ci_lo</th>
+      <th>dz_ci_hi</th>
+      <th>n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>t-test</td>
+      <td>1.232645</td>
+      <td>0.243404</td>
+      <td>4.248148</td>
+      <td>-3.337257</td>
+      <td>11.833553</td>
+      <td>0.355834</td>
+      <td>-0.225006</td>
+      <td>1.075376</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+    <img src="paired_lines_groups.png" alt="Paired lines" />
+
+    <h2>4) Within-group balance (Gini & CV)</h2>
+    <h3>4.1 Gini coefficient</h3>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Type</th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AI</td>
+      <td>0.223529</td>
+      <td>0.107571</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>NoAI</td>
+      <td>0.252272</td>
+      <td>0.095948</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>W</th>
+      <th>p</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.9218</td>
+      <td>0.301174</td>
+    </tr>
+  </tbody>
+</table>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>test</th>
+      <th>stat</th>
+      <th>p</th>
+      <th>mean_diff</th>
+      <th>ci_lo</th>
+      <th>ci_hi</th>
+      <th>dz</th>
+      <th>dz_ci_lo</th>
+      <th>dz_ci_hi</th>
+      <th>n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>t-test</td>
+      <td>-0.687804</td>
+      <td>0.505821</td>
+      <td>-0.028743</td>
+      <td>-0.120719</td>
+      <td>0.063234</td>
+      <td>-0.198552</td>
+      <td>-0.754565</td>
+      <td>0.499343</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+    <img src="balance_gini_bar.png" alt="Gini bar" />
+    <img src="balance_gini_box.png" alt="Gini box" />
+    <img src="balance_gini_paired_lines.png" alt="Gini paired lines" />
+    <img src="balance_gini_diff_hist.png" alt="Gini diff hist" />
+    <img src="balance_gini_qq.png" alt="Gini QQ plot" />
+
+    <h3>4.2 Coefficient of Variation (CV)</h3>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Type</th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AI</td>
+      <td>0.536275</td>
+      <td>0.269069</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>NoAI</td>
+      <td>0.613585</td>
+      <td>0.237120</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>W</th>
+      <th>p</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.921786</td>
+      <td>0.301051</td>
+    </tr>
+  </tbody>
+</table>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>test</th>
+      <th>stat</th>
+      <th>p</th>
+      <th>mean_diff</th>
+      <th>ci_lo</th>
+      <th>ci_hi</th>
+      <th>dz</th>
+      <th>dz_ci_lo</th>
+      <th>dz_ci_hi</th>
+      <th>n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>t-test</td>
+      <td>-0.723752</td>
+      <td>0.484325</td>
+      <td>-0.077309</td>
+      <td>-0.312412</td>
+      <td>0.157794</td>
+      <td>-0.208929</td>
+      <td>-0.771694</td>
+      <td>0.445693</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+    <img src="balance_cv_bar.png" alt="CV bar" />
+    <img src="balance_cv_box.png" alt="CV box" />
+    <img src="balance_cv_paired_lines.png" alt="CV paired lines" />
+    <img src="balance_cv_diff_hist.png" alt="CV diff hist" />
+    <img src="balance_cv_qq.png" alt="CV QQ plot" />
+
+    <hr />
+    <p>Auto-generated. Confidence level 95%, bootstrap 10000 iterations.</p>
+  </body>
+</html>
