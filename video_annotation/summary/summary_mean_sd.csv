@@ -1,0 +1,5 @@
+Type,Condition,Mean,SD,N,CI_low,CI_high
+Posture,AI,2.02,0.13,36,1.97,2.06
+Posture,NoAI,1.95,0.2,36,1.88,2.02
+Gaze,AI,2.98,0.04,36,2.96,2.99
+Gaze,NoAI,2.93,0.18,36,2.87,2.99
