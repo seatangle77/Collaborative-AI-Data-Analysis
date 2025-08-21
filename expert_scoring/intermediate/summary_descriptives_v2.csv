@@ -1,0 +1,7 @@
+Score,Expert,Scope,count,mean,std,min,25%,50%,75%,max
+Process Score,E1,Overall,24.0,3.0,1.6939791077198396,0.0,2.0,3.0,5.0,5.0
+Process Score,E1,Condition=AI,12.0,2.75,1.864744681524183,0.0,1.75,2.5,4.25,5.0
+Process Score,E1,Condition=NoAI,12.0,3.25,1.5447859516333116,1.0,2.0,3.0,5.0,5.0
+Process Score,E2,Overall,24.0,3.4583333333333335,1.5597983890531344,0.0,2.75,4.0,5.0,5.0
+Process Score,E2,Condition=AI,12.0,3.5833333333333335,1.443375672974064,0.0,3.0,4.0,4.25,5.0
+Process Score,E2,Condition=NoAI,12.0,3.3333333333333335,1.7232808737106582,0.0,2.0,4.0,5.0,5.0
