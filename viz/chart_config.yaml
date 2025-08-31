@@ -1,0 +1,46 @@
+matplotlib:
+  font_family: "DejaVu Sans"
+  title_size: 16
+  label_size: 12
+  tick_size: 10
+  legend_size: 11
+  line_width: 1.1
+  grid_alpha: 0.2
+  grid_ls: "--"
+  dpi: 300
+  save_bbox: "tight"
+  save_pad_inches: 0.05
+
+palette:
+  baseline: "#64B5F6"   # 浅蓝
+  engagecue: "#F48FB1"  # 浅粉
+  median: "#D33A2C"     # 箱线图中位线
+  error: "#333333"      # 误差线
+
+bars:
+  width: 0.28  # 更精致的柱宽
+  alpha: 0.95
+  error_capsize: 3
+  error_elinewidth: 1.1
+  spacing: 0.35  # 柱子间距
+
+boxplot:
+  face_alpha: 0.35
+  edge_lw: 1.1
+  box_lw: 1.1
+  whisker_lw: 1.1
+  cap_lw: 1.1
+  median_lw: 2.2
+
+text:
+  value_size: 10
+  sig_size: 11
+  ns_text: "n.s."
+  sig_y_rel: 0.92     # 显著性标记相对轴高位置
+  n_label_size: 9
+  n_label_y_rel: -0.12
+
+layout:
+  legend_loc: "upper right"
+  legend_framealpha: 0.15
+  headroom_ratio: 0.06  # 顶部留白 6%

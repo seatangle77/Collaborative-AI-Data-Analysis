@@ -1,0 +1,16 @@
+=== Figure Z (Combined) Caption ===
+Figure Z. Expert-rated collaboration quality across conditions (1-7 scale). 
+Combined results represent the average of two independent expert ratings. 
+Standard errors calculated using pooled variance method. 
+All dimensions show non-significant differences (p > .05).
+
+=== Figure Z-suppl (By Expert) Caption ===
+Figure Z-suppl. Expert-rated collaboration quality by individual expert (1-7 scale). 
+Each panel shows ratings from one expert across three dimensions. 
+Standard errors based on within-expert variance. 
+Individual expert analyses show consistent non-significant patterns.
+
+=== Scale Information ===
+Scale Range: Expert Rating (1-7)
+Max Score: 7.0
+Y-axis Max: 8.0
